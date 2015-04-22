@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BlocMetrics</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>BlocMetrics</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class ="container">
+      <h1 class ='text'><%= link_to "BlocMetrics", root_path %></h1>
+      <ul>
+        <ul class ="nav nav-tabs">
+              <li><%= link_to "Home", welcome_index_path %></li>
+              <li><%= link_to "About", welcome_about_path %></li>
+              
+        </ul>
 
-   <ul>
-        <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
-   </ul>
+  <%= yield %>
 
-<%= yield %>
-
-</body>
+    </div>
+  </body>
 </html>

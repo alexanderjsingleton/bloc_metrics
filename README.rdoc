@@ -1,7 +1,7 @@
 == README
-##BlocMetrics is an analytics service to track events on websites.
+BlocMetrics is an analytics service to track events on websites.
 
-###User Stories
+User Stories
 1. As a user, I want to sign up for a free account by providing a name, password, and email.
 2. As a user, I want to sign in and out of Blocmetrics.
 3. As a user, I want to register an application with Blocmetrics for tracking.

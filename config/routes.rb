@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'applications/index'
+  resources :applications
 
-  get 'applications/show'
+  # get 'applications/index'
 
-  get 'applications/new'
+  # get 'applications/show'
 
-  get 'applications/edit'
+  # get 'applications/new'
+
+  # get 'applications/edit'
 
   devise_for :users
   get 'welcome/index'

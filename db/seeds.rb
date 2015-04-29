@@ -37,6 +37,12 @@ registered_applications = Application.all
 10.times do
   events = Event.create!(
     application: registered_applications.sample,
-    event_name: Faker::Hacker.verb
+    # event_name: Faker::Hacker.say_something_smart
+    event_name: Faker::Hacker.ingverb 
     )
 end
+
+
+puts "Seeds finished"
+puts "#{Application.count} applications created"
+puts "#{Event.count} events created"

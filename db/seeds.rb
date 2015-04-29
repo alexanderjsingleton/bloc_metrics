@@ -25,8 +25,18 @@ test.skip_confirmation!
 test.save
  
  5.times do
-  registered_application = Application.create!(
+  registered_applications = Application.create!(
     user: test,
     url: Faker::Internet.url
+    )
+end
+
+registered_applications = Application.all
+
+#Create events
+10.times do
+  events = Event.create!(
+    application: registered_applications.sample,
+    event_name: Faker::Hacker.verb
     )
 end

@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
  
 # Create an admin user
  admin = User.new(
@@ -14,4 +16,41 @@
  )
  admin.skip_confirmation!
  admin.save!
+
+
+
+ # Create Users
+5.times do
+  user = User.new(
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+end
+users = User.all
+
+
+ # Create Applications
+ 10.times 
+   Application.create!(
+     url:         Faker::Internet.url 
+   )
+ end
+ topics = Topic.all
+
+#Create Events
+ 50.times do
+  Event.create!(
+    user:   users.sample,
+    application:  Applications.sample,
+    name:  Events.sample
+  )
+end
+event = Events.all
+
+ puts "Seed finished"
+ puts "#{Event.count} events created"
+ puts "#{Application.count} applications created"
  

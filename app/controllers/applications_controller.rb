@@ -9,7 +9,10 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/1
   # GET /applications/1.json
+
+  # Modify the Application Show Page using Ruby's group_by method
   def show
+    @events = @application.events.group_by(&:name)
   end
 
   # GET /applications/new

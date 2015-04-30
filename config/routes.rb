@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :events
- 
-
-  resources :applications do
-     resources :events, except: [:index]
-   end
-
-
-
   # get 'applications/index'
 
   # get 'applications/show'
@@ -16,6 +7,15 @@ Rails.application.routes.draw do
   # get 'applications/new'
 
   # get 'applications/edit'
+
+  resources :events
+ 
+
+  resources :applications do
+     resources :events, except: [:index]
+  end
+
+  
 
   devise_for :users
   get 'welcome/index'
@@ -29,6 +29,14 @@ Rails.application.routes.draw do
   # #2
      resources :events, only: [:create]
    end
+
+  # authenticated :user do
+  #   root to: "registered_applications#index", as: :authenticated_root, via: :get
+  # end
+
+  # unauthenticated do
+  #   root 'welcome#index'
+  # end
 
  
 end

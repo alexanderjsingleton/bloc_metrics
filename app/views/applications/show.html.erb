@@ -11,13 +11,11 @@
             <td class="text-uppercase">Event Name</td>
             <td class="text-uppercase">Event Count</td>
           </thead>
-          
+          <% @events.inspect =%>
           <% @events.each do |name, events| %>
             <tr>
             <td><%= name %></td>
-            <% count = 0 %>
-              <% events.each{ |event| count += 1 } %>
-            <td><%= count %></td>
+            <td><%= events.count %></td>
           </tr>
           <% end %>
          

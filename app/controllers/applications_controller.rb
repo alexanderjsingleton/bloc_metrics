@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
   # Modify the Application Show Page using Ruby's group_by method
   def show
     @application = Application.find(params[:id])
-    @events = @application.events.group_by(&:name)
+    @events = @application.events.group_by(&:event_name)
   end
 
   # GET /applications/new

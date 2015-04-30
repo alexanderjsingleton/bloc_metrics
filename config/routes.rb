@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    end
 
 
+
   # get 'applications/index'
 
   # get 'applications/show'

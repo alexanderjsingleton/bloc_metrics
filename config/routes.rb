@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :events
+ 
 
-  resources :applications
+  resources :applications do
+     resources :events, except: [:index]
+   end
+
 
   # get 'applications/index'
 

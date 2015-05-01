@@ -47,6 +47,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '1.0'
 gem 'faker'
+gem 'chartkick'
 
 group :production do
   gem 'pg'

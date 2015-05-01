@@ -22,7 +22,7 @@
         </tbody>
       </table>
        <%= pie_chart @application.events.group(:event_name).count %>
-      <%= line_chart @application.events.group_by_day(:created_at).count %>
+      <%= line_chart @application.events.group(:created_at).count %>
     </div>
     <div class='row'>
       <div class='col-md-8'>

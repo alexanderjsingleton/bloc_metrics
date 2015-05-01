@@ -1,5 +1,6 @@
  class API::EventsController < ApplicationController
-# #3
+   before_filter :cors_preflight_check
+   after_filter :set_headers
    skip_before_action :verify_authenticity_token
  
    def create
@@ -20,11 +21,36 @@
 
    private
    
-   def event_params
-     params.require(:event).permit(:event_name)
-   end
+  def event_params
+    params.require(:event).permit(:event_name)
+  end
+
+  def set_headers
+    headers['Access-Control-Allow-Origin'] = "*"
+    headers['Access-Control-Allow-Methods'] = "POST, GET, OPTIONS"
+    headers['Access-Control-Allow-Headers'] = "Access-Control-Allow-Origin, Content-Type"
+  end
+
+  # A CORS preflight check allows poorly designd and legacy servers to support CORS by executing a sanity check
+  # between client and server
+  def cors_preflight_check
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Access-Control-Allow-Origin, X-Requested-With, X-Prototype-Version, Content-Type'
+    headers['Access-Control-Max-Age'] = '1728000'
+    render text: "" if request.method == "OPTIONS"
+  end
 
  end
 
  # curl command for API
  # curl -v -H "Accept: application/json" -H "Origin: www.yahoo.com" -H "Content-Type: application/json" -X POST -d '{"event_name":"foobar"}'  http://localhost:3000/api/events
+
+ # curl -v -H "Accept: application/json" -H "Origin: http://localhost:3000" --header "Content-type: application/json" -X POST -d '{"name":"foobar"}'  http://localhost:3001/api/events
+
+
+ # Running multiple servers
+ # Specify port
+ ## rails s for default localhost:3000 OR rails server -p 3001
+ #Running on alternate address
+ ## bundle exec rails s -p 3001 -P tmp/pids/server2.pid

@@ -49,6 +49,7 @@
  # curl -v -H "Accept: application/json" -H "Origin: www.yahoo.com" -H "Content-Type: application/json" -X POST -d '{"event_name":"foobar"}'  http://localhost:3000/api/events
 
  # curl -v -H "Accept: application/json" -H "Origin: http://localhost:3000" --header "Content-type: application/json" -X POST -d '{"event_name":"foobar"}'  http://localhost:3001/api/events
+ # curl -v -H "Accept: application/json" -H "Origin: http://localhost:3001" --header "Content-type: application/json" -X POST -d '{"event_name":"foobar"}'  http://localhost:3001/api/events
 
 
  # Running multiple servers

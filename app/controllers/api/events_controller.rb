@@ -25,6 +25,8 @@
     params.require(:event).permit(:event_name)
   end
 
+  # https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
   def set_headers
     headers['Access-Control-Allow-Origin'] = "*"
     headers['Access-Control-Allow-Methods'] = "POST, GET, OPTIONS"

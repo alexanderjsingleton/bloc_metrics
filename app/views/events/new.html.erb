@@ -1,4 +1,18 @@
 <h1>New Event</h1>
+<script>
+  var _bm_event = {
+  event_name: "sale"
+}
+
+var _bm_request = new XMLHttpRequest();
+  _bm_request.open("POST", "http://localhost:3000/api/events", true);
+  _bm_request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+  // _bm_request.setRequestHeader('Origin', 'www.yahoo.com');
+  // #5
+  _bm_request.onreadystatechange = function() {
+  };
+  _bm_request.send(JSON.stringify(_bm_event));
+</script>
 
 <%= render 'form' %>
 

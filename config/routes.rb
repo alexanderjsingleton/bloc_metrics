@@ -28,6 +28,7 @@ Rails.application.routes.draw do
    namespace :api, defaults: { format: :json } do
   # #2
      resources :events, only: [:create]
+     match 'events' => "events#create", via: :options, as: :events_options
    end
 
   # authenticated :user do

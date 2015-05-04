@@ -4,6 +4,7 @@
    skip_before_action :verify_authenticity_token
  
    def create
+      puts request.env['HTTP_ORIGIN']
      application = Application.find_by(url: request.env['HTTP_ORIGIN'])
      puts application.inspect
       if application.nil?

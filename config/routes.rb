@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
+  get 'applications' => 'welcome/applications#index'
+
     root to: 'welcome#index'
 
   # #1

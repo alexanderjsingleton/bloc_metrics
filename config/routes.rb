@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'applications' => 'welcome/applications#index'
 
+
+
     root to: 'welcome#index'
 
   # #1
